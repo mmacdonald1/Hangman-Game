@@ -83,10 +83,14 @@ var game = {
                 idx = game.letterArray().indexOf(userGuess, idx + 1);
                 console.log(indices);
                     }
+            currentLetter = game.letterArray()[i];
             if (game.letterArray().includes(userGuess)){
                 console.log('correct')
-                dogLengthArray.push(userGuess);
+                for(var i = 0; i < game.letterArray().length; i++){
+                dogLengthArray[i]=currentLetter;
+                disword.textContent = dogLengthArray;
                 console.log(dogLengthArray);
+                }
             }
             
             else if (wrongArray.includes(userGuess) === false){
