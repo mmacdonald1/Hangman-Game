@@ -6,15 +6,22 @@ var wrongArray = [];
 var indexValue;
 var match;
 var dogLengthArray = [];
-var indexArray= [];
+var letterIndexArray= [];
+var letterIndex;
+var currentLetter;
+
 
 
 
 // DOM manipulations=======================
-var score = document.getElementById("score");
+var score = document.getElementById("score").innerHTML;
 var winCount = 0;
-var remaining = document.getElementById("remaining");
+var remaining = document.getElementById("remaining").innerHTML;
 var remainingCount = 10;
+var disword = document.getElementById("dis-word").innerHTML;
+var disguess = document.getElementById("dis-guess").innerHTML;
+var resetButton = document.getElementById("reset-button").innerHTML;
+
 
 // Dog Array================================================
     "use strict";
@@ -31,8 +38,8 @@ var game = {
     var randomIndex = Math.floor(Math.random()* dogArray.length);
     randomDog = dogArray[randomIndex];
     
-     console.log(randomIndex);
-     console.log(randomDog);
+//     console.log(randomIndex);
+//     console.log(randomDog);
     
      return randomDog;
    
@@ -41,7 +48,7 @@ var game = {
  letterArray: function(){
     var res = randomDog.split("");    
 
-    console.log(res);
+//    console.log(res);
       
     return res;
 },
@@ -53,63 +60,64 @@ var game = {
 
          dogLengthArray.push("_ ");
      }
-    console.log("WOOO", dogLengthArray);
+//    console.log("WOOO", dogLengthArray);
+    disword.textContent = dogLengthArray;
     },
 
-
+    
+    
     handlesKeyPress: function(){
         document.onkeyup = function(event) {
           var userGuess = event.key.toUpperCase(); 
             console.log(userGuess);
-        
-//        for (var i=0, i < game.letterArray.length, i++){
-//            letterIndexArray = game.letterArray().indexOf(userGuess);
-//            console.log(letterIndexArray);
-//        return letterIndexArray;
-//        }
             
+             
+            
+         for (let i = 0; i < game.letterArray().length; i++ ) {
+             currentLetter = game.letterArray()[i];
+           if (currentLetter === userGuess) {
+                dogLengthArray[i]=currentLetter;
+                disword.textContent = dogLengthArray;
+            } 
+
+         }
+            console.log(dogLengthArray);
+            return dogLengthArray;    
+         
         }
-    },        
- 
-//// This function is run whenever the user presses a key.
-//
-//    document.onkeyup: function(event) {
-//        
-//// Determines which key was pressed.
-//        
-//        var userGuess = event.key.toUpperCase();
-//        
-//        //console.log(event.key);
-//        console.log(dogLengthArray);
-//        console.log(userGuess);
-//        
-////Index the answerArray ERROR HERE
-//        
-//        console.log('Letter array type: ', typeof letterArray());
-//        console.log('Letter array: ', letterArray());
-//    
-//        for (var i=0, i< dogLengthArray.length, i++){
-//        letterIndexArray = dogLengthArray().indexOf(userGuess);
-//    
-//        return letterIndexArray;
-//        }
-//       
-//        console.log(letterIndexArray);
-//        
-////if else FIX INDEXVALUE
-//            if (indexValue>0){
-//              dogLengthArray[indexValue]= userGuess;
-//              score.textContent = ++winCount;
-//          } 
-//            else if (indexValue=-1){
+    },
+};
+             
+//            else if (wrongArray.includes(userGuess)){}
+//            
+//            else{
 //                wrongArray.push(userGuess);
+//                console.log(wrongArray);
+//                disguess.textContent= wrongArray;
 //                remaining.textContent = --remainingCount;
 //            }
-//                
+//            console.log(wrongArray);
+//            return wrongArray;
+//         }
+//        if (remainingCount === 0){
+//            alert("GAME OVER");
+//        }
+//        
+//        if ( dogLengthArray.join === randomDog){
+//            score.textContent= ++scoreCount;
+//        } 
+    
+//    reset: function(){
+//      document.addEventListener("click");  
+//        game.dogName();
+//        remainingCount= 10;
+//        wrongArray =[];
 //    },
 
-};
 
+
+
+                             
 //Calling
 //document.onkeyup = game.handlesKeypress;
 
