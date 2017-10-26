@@ -9,6 +9,8 @@ var dogLengthArray = [];
 var letterIndexArray= [];
 var letterIndex;
 var currentLetter;
+var indices = [];
+var idx;
 
 
 
@@ -63,6 +65,8 @@ var game = {
 //    console.log("WOOO", dogLengthArray);
     disword.textContent = dogLengthArray;
     },
+    
+    //for loop with a generator we learned today to get commas out
 
     
     
@@ -72,28 +76,65 @@ var game = {
             console.log(userGuess);
             
              
-            
-         for (let i = 0; i < game.letterArray().length; i++ ) {
-             currentLetter = game.letterArray()[i];
-           if (currentLetter === userGuess) {
-                dogLengthArray[i]=currentLetter;
-                disword.textContent = dogLengthArray;
-            } 
-            if (currentLetter !== userGuess && i===game.letterArray().length-1) {
-             
-                if(wrongArray.includes(userGuess) === false){
-                console.log('Not a matching char bruh, and your character is not in the aray.')
-                wrongArray.push(userGuess);
-                }   
+            // if(aaray.indexOf(guess) != -1){logic if it does
+            if (game.letterArray().indexOf(userGuess) != -1){
+                
+                indices.push(idx);
+                idx = game.letterArray().indexOf(userGuess, idx + 1);
+                console.log(indices);
+                    }
+            if (game.letterArray().includes(userGuess)){
+                console.log('correct')
+                dogLengthArray.push(userGuess);
+                console.log(dogLengthArray);
             }
-         }
-            console.log('Wrong ARAAY #############', wrongArray);
-            console.log(dogLengthArray);
-            return dogLengthArray;    
-         
-        }
-    },
-};
+            
+            else if (wrongArray.includes(userGuess) === false){
+                 console.log('incorrect')
+                wrongArray.push(userGuess);
+                disguess.textContent= wrongArray;
+                remaining.textContent = --remainingCount;
+            }
+            
+            }
+            
+            
+            // Finding all the occurrences of an element
+            // for loop for indicies to alter the game to show word
+            // }else{ logic for doesn't exist
+            // }
+        },
+        };
+            
+//         for (let i = 0; i < game.letterArray().length; i++ ) {
+//             currentLetter = game.letterArray()[i];
+//            console.log(currentLetter === userGuess)
+//             
+//             
+//             
+//           if (currentLetter === userGuess) {
+//               console.log('correct')
+//                dogLengthArray[i]=currentLetter;
+//                disword.textContent = dogLengthArray;
+//               return dogLengthArray;
+//            } 
+//            if (currentLetter !== userGuess) {
+//               console.log('incorrect')
+//             
+//                if(wrongArray.includes(userGuess) === false){
+//                console.log('Not a matching char bruh, and your character is not in the aray.')
+//                wrongArray.push(userGuess);
+//                disguess.textContent= wrongArray;
+//                remaining.textContent = --remainingCount;
+//                }   
+//            }
+//         }
+//            console.log('Wrong ARAAY #############', wrongArray);
+//            console.log(dogLengthArray);
+////            return dogLengthArray;    
+//         
+//        }
+
              
 //            else if (wrongArray.includes(userGuess)){}
 //            
