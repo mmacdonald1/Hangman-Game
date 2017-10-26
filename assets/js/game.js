@@ -14,13 +14,13 @@ var currentLetter;
 
 
 // DOM manipulations=======================
-var score = document.getElementById("score").innerHTML;
+var score = document.getElementById("score");
 var winCount = 0;
-var remaining = document.getElementById("remaining").innerHTML;
+var remaining = document.getElementById("remaining");
 var remainingCount = 10;
-var disword = document.getElementById("dis-word").innerHTML;
-var disguess = document.getElementById("dis-guess").innerHTML;
-var resetButton = document.getElementById("reset-button").innerHTML;
+var disword = document.getElementById("dis-word");
+var disguess = document.getElementById("dis-guess");
+var resetButton = document.getElementById("reset-button");
 
 
 // Dog Array================================================
@@ -79,8 +79,15 @@ var game = {
                 dogLengthArray[i]=currentLetter;
                 disword.textContent = dogLengthArray;
             } 
-
+            if (currentLetter !== userGuess && i===game.letterArray().length-1) {
+             
+                if(wrongArray.includes(userGuess) === false){
+                console.log('Not a matching char bruh, and your character is not in the aray.')
+                wrongArray.push(userGuess);
+                }   
+            }
          }
+            console.log('Wrong ARAAY #############', wrongArray);
             console.log(dogLengthArray);
             return dogLengthArray;    
          
