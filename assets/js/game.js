@@ -15,6 +15,7 @@ var idx;
 
 
 
+
 // DOM manipulations=======================
 var score = document.getElementById("score");
 var winCount = 0;
@@ -77,28 +78,36 @@ var game = {
             
              
             // if(aaray.indexOf(guess) != -1){logic if it does
-            if (game.letterArray().indexOf(userGuess) != -1){
-                
-                indices.push(idx);
-                idx = game.letterArray().indexOf(userGuess, idx + 1);
-                console.log(indices);
-                    }
-            currentLetter = game.letterArray()[i];
-            if (game.letterArray().includes(userGuess)){
-                console.log('correct')
-                for(var i = 0; i < game.letterArray().length; i++){
-                dogLengthArray[i]=currentLetter;
-                disword.textContent = dogLengthArray;
-                console.log(dogLengthArray);
-                }
-            }
             
-            else if (wrongArray.includes(userGuess) === false){
-                 console.log('incorrect')
-                wrongArray.push(userGuess);
-                disguess.textContent= wrongArray;
-                remaining.textContent = --remainingCount;
-            }
+            var idx = game.letterArray().indexOf(userGuess);
+            console.log(idx);
+            
+           
+            
+            while (idx != -1){
+               indices.push(idx);
+               idx = game.letterArray().indexOf(userGuess, idx +1);
+               // dogLengthArray[idx]= userGuess;
+                    }
+            
+             console.log(indices);
+            console.log(dogLengthArray);
+            
+//            if (game.letterArray().includes(userGuess)){
+//                console.log('correct')
+//                for(var i = 0; i < game.letterArray().length; i++){
+//                
+//                disword.textContent = dogLengthArray;
+//                console.log(dogLengthArray);
+//                }
+//            }
+//            
+//            else if (wrongArray.includes(userGuess) === false){
+//                 console.log('incorrect')
+//                wrongArray.push(userGuess);
+//                disguess.textContent= wrongArray;
+//                remaining.textContent = --remainingCount;
+//            }
             
             }
             
