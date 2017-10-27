@@ -60,7 +60,7 @@ var game = {
          dogLengthArray.push("_ ");
      }
     console.log("WOOO", dogLengthArray);
-    disword.textContent = dogLengthArray;
+    disword.textContent = dogLengthArray.join('');
     },
     
     //for loop with a generator we learned today to get commas out
@@ -81,7 +81,7 @@ var game = {
                 if(userGuess === game.letterArray()[i]){
                    dogLengthArray[i] = userGuess;
                 }
-                disword.textContent = dogLengthArray;
+                disword.textContent = dogLengthArray.join('');
                 console.log(dogLengthArray);
                 }
             }
@@ -104,7 +104,7 @@ var game = {
             game.reset();
             game.new();
             } 
-            console.log(dogLengthArray.join(""));
+            console.log(dogLengthArray.join(''));
             console.log(randomDog);
         }
 
