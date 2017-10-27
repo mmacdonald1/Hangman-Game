@@ -14,14 +14,17 @@
 
         <!-- Add your site or application content here -->
        <header>
-        <h1>Press any key to begin!</h1>
+        <h1>Doggie Hangman</h1>
+        <h2>Press any key to begin!</h2>
         </header>
-        <div class="wins-box">
-        <p>Wins:<span id="score">0</span></p>
+        <div id= container>
+            <div class="wins-box">
+            <p>Wins: <span id="score">0</span></p>
+            </div>
+            <div class="word-box"><p>Dog Breed: <span id="dis-word">Word</span></p></div>
+            <p>Remaining Guesses: <span id="remaining">10</span></p>
+            <p>Letters Already Guessed: <span id="dis-guess">None</span></p>
         </div>
-        <div class="word-box"><p><span id="dis-word">Word</span></p></div>
-        <p>Remaining Guesses: <span id="remaining">10</span></p>
-        <p>Letters Already Guessed: <span id="dis-guess">None</span></p>
         
 
         <script src="assets/js/game.js"></script>
