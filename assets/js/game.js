@@ -42,7 +42,7 @@ var game = {
     randomDog = dogArray[randomIndex];
     
 //     console.log(randomIndex);
-//     console.log(randomDog);
+     console.log(randomDog);
     
      return randomDog;
    
@@ -87,36 +87,33 @@ var game = {
             while (idx != -1){
                indices.push(idx);
                idx = game.letterArray().indexOf(userGuess, idx +1);
-               // dogLengthArray[idx]= userGuess;
                     }
             
-             console.log(indices);
-            console.log(dogLengthArray);
             
-//            if (game.letterArray().includes(userGuess)){
-//                console.log('correct')
-//                for(var i = 0; i < game.letterArray().length; i++){
-//                
-//                disword.textContent = dogLengthArray;
-//                console.log(dogLengthArray);
-//                }
-//            }
-//            
-//            else if (wrongArray.includes(userGuess) === false){
-//                 console.log('incorrect')
-//                wrongArray.push(userGuess);
-//                disguess.textContent= wrongArray;
-//                remaining.textContent = --remainingCount;
-//            }
-            
+            if (game.letterArray().includes(userGuess)){
+                console.log('correct')
+                for(var i = 0; i < game.letterArray().length; i++){
+                
+                disword.textContent = dogLengthArray;
+                console.log(dogLengthArray);
+                }
+           
+            else if (wrongArray.includes(userGuess) === false){
+                 console.log('incorrect')
+                wrongArray.push(userGuess);
+                disguess.textContent= wrongArray;
+                remaining.textContent = --remainingCount;
             }
+            console.log(indices);
+            console.log(dogLengthArray);
+        }
+            },
             
             
             // Finding all the occurrences of an element
             // for loop for indicies to alter the game to show word
             // }else{ logic for doesn't exist
-            // }
-        },
+            // 
         };
             
 //         for (let i = 0; i < game.letterArray().length; i++ ) {
